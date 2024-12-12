@@ -1,0 +1,325 @@
+/* General Reset */
+* {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Body and Container Styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F2F2F2;
+    color: #091F2F;
+}
+
+.container {
+    max-width: none;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header Styling */
+.header {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fff;
+    border-bottom: 4px solid #FB4D42;
+    height: 100px;
+}
+
+.logo {
+    height: 80px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 1rem 0;
+    background-color: #091F2F;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-list li a:hover {
+    color: #FB4D42;
+}
+
+/* MBTA Hero Section Styling */
+body.mbta-visualization .hero {
+    position: relative;
+    text-align: center;
+    color: white;
+    height: 60vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 150px;
+    margin-bottom: 20px;
+    animation: gradientFade 2s ease-out;
+}
+
+body.mbta-visualization .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 0%, rgba(9, 31, 47, 0.3) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+body.mbta-visualization .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+body.mbta-visualization .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: imageReveal 3s ease-out;
+}
+
+body.mbta-visualization .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    position: absolute; /* Changed from relative */
+    top: 50%;          /* Added */
+    left: 50%;         /* Added */
+    transform: translate(-50%, -50%); /* Added */
+    width: 80%;        /* Added */
+    max-width: 800px;  /* Added */
+    margin-top: 0;     /* Changed from 300px */
+}
+
+body.mbta-visualization .hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpIn 1s ease-out forwards;
+    animation-delay: 1s;
+}
+
+body.mbta-visualization .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: white;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpIn 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+body.mbta-visualization .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+body.mbta-visualization .cta-buttons button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: #005CB9;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpIn 1s ease-out forwards;
+    animation-delay: 2s;
+}
+
+body.mbta-visualization .cta-buttons button:hover {
+    background-color: #004A93;
+}
+
+/* Visualization Grid Styling */
+.visualization-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1500px;
+    padding: 2rem;
+}
+
+#map, #neighborhood-heatmap {
+    justify-content: center;
+    width: 100%;
+}
+
+#map-section, .metric-box, .timeline {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 1rem;
+    width: 100%;
+    height: 900px;
+}
+
+#mbta-vis-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 1100px;
+    height: 700px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border: 2px solid #ccc;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Tooltip Styling */
+.tooltip {
+    background-color: rgba(9, 31, 47, 0.9);
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    color: #091F2F;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #091F2F;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+/* Animation Keyframes */
+@keyframes gradientFade {
+    0% {
+        background: linear-gradient(to bottom, #091F2F 100%, transparent 100%);
+    }
+    100% {
+        background: linear-gradient(to bottom, #091F2F 0%, transparent 0%);
+    }
+}
+
+@keyframes imageReveal {
+    0% {
+        transform: scale(1.1);
+        filter: brightness(0%);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(50%);
+    }
+}
+
+@keyframes fadeUpIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Dark overlay for better text readability */
+body.mbta-visualization .hero-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Routes and SVG Styling */
+.route {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: all 0.3s ease;
+    filter: none;
+}
+
+svg {
+    overflow: visible;
+}
+
+.accuracy-dot {
+    opacity: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .visualization-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #map-section, .metric-box, .timeline {
+        grid-column: span 1;
+        height: 900px;
+    }
+
+    #mbta-vis-container {
+        width: 100%;
+        height: auto;
+    }
+}
